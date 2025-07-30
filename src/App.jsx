@@ -60,11 +60,6 @@ function App() {
                 <p className="hero-subtitle">
                   Welcome to my personal website!!
                 </p>
-                <p className="hero-description">
-                  I am a computer science student at Purdue University. Currently, I am pursuing a specialization in Machine Learning and a minor in Supply Chain Management.
-                  <br /><br />
-                  Outside of school, I like to bake, play pickleball, and watch K-dramas. I love to talk to new people and always open to making new connections!
-                </p>
                 <a className="cta-button" href="#about">
                   Learn More About Me
                 </a>
@@ -82,14 +77,14 @@ function App() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                I'm a passionate developer who loves creating beautiful and functional web applications. 
-                With a keen eye for design and a love for clean code, I strive to build experiences 
-                that are both visually appealing and user-friendly.
+              I am a computer science student at Purdue University. 
+              Currently, I am pursuing a specialization in Machine Learning and a minor in Supply Chain Management.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, reading about 
-                the latest web development trends, or enjoying a good cup of coffee while 
-                brainstorming new project ideas.
+              For fun, I love to bake! I am so excited to bake in my apartment this fall.
+              To stay active, I like to play pickleball or go to the gym.
+              When I feel lazy or sad, I like to watch K-dramas. My favorite is "Vincenzo"! That is the show that got me into K-dramas.
+              I love to talk to new people and always open to making new connections!
               </p>
             </div>
           </div>
