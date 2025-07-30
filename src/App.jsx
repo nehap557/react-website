@@ -39,7 +39,7 @@ function App() {
             </li>
           ))}
           <li>
-            <a className="nav-link" href="/06_30_Resume (1).pdf" target="_blank" rel="noopener noreferrer">
+            <a className="nav-link" href="./06_30_Resume (1).pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </li>
@@ -69,7 +69,7 @@ function App() {
                 </a>
               </div>
               <div className="hero-image-container">
-                <img src="/Neha_Pudota.JPG" alt="Neha Pudota" className="hero-image" />
+                <img src="./Neha_Pudota.JPG" alt="Neha Pudota" className="hero-image" />
               </div>
             </div>
           </div>
