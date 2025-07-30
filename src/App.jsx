@@ -5,6 +5,7 @@ function App() {
   const sections = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -97,9 +98,12 @@ function App() {
             <div className="floating-shape shape-2"></div>
             <div className="floating-shape shape-3"></div>
           </div>
-          {/* Timeline Section */}
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="experience-section">
+          <h2 className="section-title">Experience</h2>
           <div className="timeline-section">
-            <h3 className="timeline-title">Experience Timeline</h3>
             <div className="timeline">
               {/* Halliburton */}
               <div className="timeline-item">
@@ -108,7 +112,7 @@ function App() {
                   <h4>Software Engineer Intern <span>@ Halliburton - Landmark Team</span></h4>
                   <span className="timeline-date">May 2025 - Aug. 2025, Houston, TX</span>
                   <ul>
-                    <li>Developed a scalable MCP server from scratch using FastAPI, SQL, OData, and Docker, enabling secure real-time access to Halliburton’s DSIS well data.</li>
+                    <li>Developed a scalable MCP server from scratch using FastAPI, SQL, OData, and Docker, enabling secure real-time access to Halliburton's DSIS well data.</li>
                     <li>Deployed via Kubernetes; integrated LangChain for NLP and dynamic query generation in a chatbot interface.</li>
                     <li>Built a React + Vite + Tailwind frontend with RESTful chatbot integration, real-time messaging, markdown support, and WebGL-based 3D viewer.</li>
                   </ul>
