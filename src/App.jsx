@@ -112,9 +112,9 @@ function App() {
                   <h4>Software Engineer Intern <span>@ Halliburton - Landmark Team</span></h4>
                   <span className="timeline-date">May 2025 - Aug. 2025, Houston, TX</span>
                   <ul>
-                    <li>Developed a scalable MCP server from scratch using FastAPI, SQL, OData, and Docker, enabling secure real-time access to Halliburton's DSIS well data.</li>
-                    <li>Deployed via Kubernetes; integrated LangChain for NLP and dynamic query generation in a chatbot interface.</li>
-                    <li>Built a React + Vite + Tailwind frontend with RESTful chatbot integration, real-time messaging, markdown support, and WebGL-based 3D viewer.</li>
+                    <li>- Developed a scalable MCP server from scratch using FastAPI, SQL, OData, and Docker, enabling secure real-time access to Halliburton's DSIS well data.</li>
+                    <li>- Deployed via Kubernetes; integrated LangChain for NLP and dynamic query generation in a chatbot interface.</li>
+                    <li>- Built a React + Vite + Tailwind frontend with RESTful chatbot integration, real-time messaging, markdown support, and WebGL-based 3D viewer.</li>
                   </ul>
                 </div>
               </div>
@@ -125,9 +125,9 @@ function App() {
                   <h4>Software Developer <span>@ The Data Mine, Corporate Partners - Purdue University</span></h4>
                   <span className="timeline-date">Aug. 2024 - May 2025, West Lafayette, IN</span>
                   <ul>
-                    <li>Worked with agricultural-tech startup AgRPA to implement weed-detection software for drones using Python, enhancing precision in herbicide application.</li>
-                    <li>Developed semantic segmentation and localization models using UAS drone images with multi-spectral imaging to accurately detect and locate weeds during real-time flight, improving efficiency by 50%.</li>
-                    <li>Aimed to identify weeds using deep-learning model YOLO V8 and minimize the amount of herbicides used per acre.</li>
+                    <li>- Worked with agricultural-tech startup AgRPA to implement weed-detection software for drones using Python, enhancing precision in herbicide application.</li>
+                    <li>- Developed semantic segmentation and localization models using UAS drone images with multi-spectral imaging to accurately detect and locate weeds during real-time flight, improving efficiency by 50%.</li>
+                    <li>- Aimed to identify weeds using deep-learning model YOLO V8 and minimize the amount of herbicides used per acre.</li>
                   </ul>
                 </div>
               </div>
@@ -138,9 +138,9 @@ function App() {
                   <h4>Python Course Instructor <span>@ Klein Coding Academy</span></h4>
                   <span className="timeline-date">Jun. 2023 - Jul. 2023, Klein, TX</span>
                   <ul>
-                    <li>Offered free, in-person summer coding camp to 150+ middle schoolers from 16 schools in Northwest Houston.</li>
-                    <li>Recognized by Klein ISD Newsroom and District Superintendent for impact within the community.</li>
-                    <li>Developed 20+ hours of Python course instruction using CMU CS Academy.</li>
+                    <li>- Offered free, in-person summer coding camp to 150+ middle schoolers from 16 schools in Northwest Houston.</li>
+                    <li>- Recognized by Klein ISD Newsroom and District Superintendent for impact within the community.</li>
+                    <li>- Developed 20+ hours of Python course instruction using CMU CS Academy.</li>
                   </ul>
                 </div>
               </div>

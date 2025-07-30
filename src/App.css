@@ -544,8 +544,15 @@ body {
   background: #fff;
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
-  box-shadow: 0 2px 12px rgba(212,137,144,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(212, 137, 144, 0.15);
   margin-left: 40px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(212, 137, 144, 0.1);
+}
+
+.timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(212, 137, 144, 0.2);
 }
 
 .timeline-content h4 {
