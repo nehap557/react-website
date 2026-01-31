@@ -78,13 +78,10 @@ function App() {
             <div className="about-text">
               <p>
               I am a computer science student at Purdue University. 
-              Currently, I am pursuing a specialization in Machine Learning and a minor in Supply Chain Management.
+              Currently, I am pursuing a specialization in Machine Learning and a minor in Supply Chain Engineering Technology.
               </p>
               <p>
-              For fun, I love to bake! I am so excited to bake in my apartment this fall.
-              To stay active, I like to play pickleball or go to the gym.
-              When I feel lazy or sad, I like to watch K-dramas. My favorite is "Vincenzo"! That is the show that got me into K-dramas.
-              I love to talk to new people and always open to making new connections!
+              I love to bake and binge watch TV shows! I have also recently discovered puzzles and picked up reading again. I am currently building a 1500 piece puzzle of the Taj Mahal!
               </p>
             </div>
           </div>
