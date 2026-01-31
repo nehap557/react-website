@@ -40,7 +40,7 @@ function App() {
             </li>
           ))}
           <li>
-            <a className="nav-link" href="./06_30_Resume (1).pdf" target="_blank" rel="noopener noreferrer">
+            <a className="nav-link" href="./Neha_Pudota_resume_Jan2026.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </li>
@@ -101,12 +101,26 @@ function App() {
               <div className="timeline-item">
                 <div className="timeline-dot"></div>
                 <div className="timeline-content">
-                  <h4>Software Engineer Intern <span>@ Halliburton - Landmark Team</span></h4>
+                  <h4>AI Systems Engineer Intern <span>@ Halliburton - Landmark Team</span></h4>
                   <span className="timeline-date">May 2025 - Aug. 2025, Houston, TX</span>
                   <ul>
-                    <li>- Developed a scalable MCP server from scratch using FastAPI, SQL, OData, and Docker, enabling secure real-time access to Halliburton's DSIS well data.</li>
-                    <li>- Deployed via Kubernetes; integrated LangChain for NLP and dynamic query generation in a chatbot interface.</li>
-                    <li>- Built a React + Vite + Tailwind frontend with RESTful chatbot integration, real-time messaging, markdown support, and WebGL-based 3D viewer.</li>
+                    <li>- Built an Agentic AI Chatbot to query Halliburton’s DSIS database, reducing average query latency by 40%</li>
+                    <li>- Implemented agentic workflows for tracing and debugging; added chatbot memory enabling context-aware responses</li>
+                    <li>- Containerized and deployed the server using Docker, enabling horizontal scaling to support 2k+ concurrent queries</li>
+                    <li>- Integrated WebViz 3D viewer/chatbot into an Angular UI, cutting analysis workflow time by 30% with visualization</li>
+                  </ul>
+                </div>
+              </div>
+              {/* The Liberry */}
+              <div className="timeline-item">
+                <div className="timeline-dot"></div>
+                <div className="timeline-content">
+                  <h4>Software Engineer Intern <span>@The Liberry - Startup</span></h4>
+                  <span className="timeline-date">May 2025 - Aug. 2025, Houston, TX</span>
+                  <ul>
+                    <li>- Scraped 5k+ baby product listings (e.g., strollers) from e-commerce platforms, expanding the database by 30%</li>
+                    <li>- Cleaned and standardized 10k+ records across multiple data sources using Pandas, ensuring uniform formats</li>
+                    <li>- Improved dataset consistency by refining schema alignment, enabling more accurate and reliable downstream analytics</li>
                   </ul>
                 </div>
               </div>
@@ -117,9 +131,9 @@ function App() {
                   <h4>Software Developer <span>@ The Data Mine, Corporate Partners - Purdue University</span></h4>
                   <span className="timeline-date">Aug. 2024 - May 2025, West Lafayette, IN</span>
                   <ul>
-                    <li>- Worked with agricultural-tech startup AgRPA to implement weed-detection software for drones using Python, enhancing precision in herbicide application.</li>
-                    <li>- Developed semantic segmentation and localization models using UAS drone images with multi-spectral imaging to accurately detect and locate weeds during real-time flight, improving efficiency by 50%.</li>
-                    <li>- Aimed to identify weeds using deep-learning model YOLO V8 and minimize the amount of herbicides used per acre.</li>
+                    <li>- Developed weed-detection models for AgRPA using Python and YOLOv8, improving herbicide-application precision</li>
+                    <li>- Built semantic-segmentation/localization pipelines for multi-spectral drone imagery, boosting detection efficiency by 50%</li>
+                    <li>- Worked with a cross-functional team to optimize model performance and deployment workflows for drone operations</li>
                   </ul>
                 </div>
               </div>
@@ -130,9 +144,8 @@ function App() {
                   <h4>Python Course Instructor <span>@ Klein Coding Academy</span></h4>
                   <span className="timeline-date">Jun. 2023 - Jul. 2023, Klein, TX</span>
                   <ul>
-                    <li>- Offered free, in-person summer coding camp to 150+ middle schoolers from 16 schools in Northwest Houston.</li>
-                    <li>- Recognized by Klein ISD Newsroom and District Superintendent for impact within the community.</li>
-                    <li>- Developed 20+ hours of Python course instruction using CMU CS Academy.</li>
+                    <li>- Taught 150+ middle schoolers from 16 schools in a free Python summer camp using CMU CS Academy curriculum</li>
+                    <li>- Recognized by Klein ISD Newsroom and Superintendent for impactful community engagement and course development</li>
                   </ul>
                 </div>
               </div>
