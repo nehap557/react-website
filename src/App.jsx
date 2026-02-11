@@ -198,7 +198,7 @@ function App() {
             </a>
             <div className="project-card">
               <div className="project-image">
-                <div className="project-placeholder">Java Messaging App</div>
+                <img src="./java_project.png" alt="Java Messaging App" />
               </div>
               <div className="project-content">
                 <h3>Java Messaging App with User Management</h3>
