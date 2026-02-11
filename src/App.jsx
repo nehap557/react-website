@@ -180,6 +180,22 @@ function App() {
         <section id="projects" className="projects-section section-reveal">
           <h2 className="section-title">Projects</h2>
           <div className="projects-grid">
+            <a href="https://github.com/Arshiapat/Her-kathon" target="_blank" rel="noopener noreferrer" className="project-card-link">
+              <div className="project-card">
+                <div className="project-image">
+                  <img src="./image.png" alt="Crypto Simulator" />
+                </div>
+                <div className="project-content">
+                  <h3>Crypto Simulator</h3>
+                  <span className="timeline-date">Browser-based trading simulator</span>
+                  <ul>
+                    <li>- A financial education tool for women to learn and practice crypto trading with simulated USD and live market prices (CoinGecko API). No wallet or blockchain connection required.</li>
+                    <li>- Features virtual balance, buy/sell for BTC/ETH/SOL/DOGE, portfolio value chart, safety checklist with flash cards, crypto chatbot, and transaction history—all persisted in localStorage.</li>
+                    <li>- Built with React 18, vanilla JS/CSS, and DM Sans typography.</li>
+                  </ul>
+                </div>
+              </div>
+            </a>
             <div className="project-card">
               <div className="project-image">
                 <div className="project-placeholder">Java Messaging App</div>
@@ -193,7 +209,6 @@ function App() {
                 </ul>
               </div>
             </div>
-            {/* Add more projects here if you want */}
           </div>
         </section>
         {/* Skills Section */}
