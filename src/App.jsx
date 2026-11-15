@@ -270,7 +270,9 @@ function App() {
       entries =>
         entries.forEach(e => {
           if (e.isIntersecting) {
-            e.target.classList.add('visible')
+            // Use a data attribute, not a class: React rewrites className on re-render
+            // (e.g. when the experience filter changes) and would wipe a class added here.
+            e.target.setAttribute('data-visible', 'true')
             io.unobserve(e.target)
           }
         }),
