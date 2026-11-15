@@ -365,8 +365,8 @@ function App() {
               <p>
                 I’m a computer science student at Purdue University
                 (B.S. expected Dec 2027) with a specialization in Machine Learning
-                and a minor in Supply Chain Engineering Technology. I’m on the
-                Dean’s List and a Semester Honors recipient.
+                and a minor in Supply Chain Engineering Technology. I’m also a
+                Semester Honors recipient.
               </p>
               <p>
                 I like building things that sit between AI and real systems: agentic
