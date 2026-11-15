@@ -8,6 +8,11 @@
   --cyan: #5ee7df;
   --glass: rgba(255, 255, 255, 0.045);
   --glass-border: rgba(255, 255, 255, 0.09);
+  --text-soft: #cfcbe3;
+  --strong: #ffffff;
+  --chip-text: #d9d5f5;
+  --nav-bg: rgba(11, 10, 20, 0.65);
+  --nav-bg-solid: rgba(11, 10, 20, 0.96);
   --grad: linear-gradient(120deg, var(--pink), var(--violet) 55%, var(--cyan));
 
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -21,6 +26,25 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light theme (toggled via data-theme on <html>) */
+:root[data-theme='light'] {
+  --bg: #f6f4ff;
+  --bg-soft: #ece8fb;
+  --text: #1d1a33;
+  --muted: #5f5b7a;
+  --pink: #e0457f;
+  --violet: #6a58f0;
+  --cyan: #0fb5a8;
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(40, 30, 110, 0.12);
+  --text-soft: #3b3758;
+  --strong: #14102b;
+  --chip-text: #3d3480;
+  --nav-bg: rgba(246, 244, 255, 0.78);
+  --nav-bg-solid: rgba(246, 244, 255, 0.97);
+  color-scheme: light;
 }
 
 * {

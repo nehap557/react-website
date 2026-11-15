@@ -17,6 +17,18 @@ const roles = [
   'Puzzle Addict',
 ]
 
+const EMAIL = 'npudota@purdue.edu'
+const RESUME = './Neha_Pudota_resume_Jan2026.pdf'
+
+const categories = ['AI / ML', 'Backend & Systems', 'Security', 'Data', 'Teaching']
+
+const nowItems = [
+  { icon: '💼', label: 'Working on', text: 'Passkey provider prototypes with TPM and FIDO2 at my IBM co-op' },
+  { icon: '🎓', label: 'Studying', text: 'Computer Science at Purdue, specializing in Machine Learning' },
+  { icon: '🧩', label: 'Building', text: 'A 1500-piece Taj Mahal puzzle (slowly)' },
+  { icon: '📚', label: 'Getting back into', text: 'Reading for fun' },
+]
+
 const experience = [
   {
     company: 'IBM',
@@ -25,6 +37,7 @@ const experience = [
     place: 'Austin, TX',
     current: true,
     tech: ['C/C++', 'Java/Kotlin', 'FIDO2', 'IPC', 'Cryptography'],
+    tags: ['Security', 'Backend & Systems'],
     bullets: [
       'Developing and refactoring enterprise passkey provider prototypes for Windows and Android platform applications',
       'Redesigning Windows credential provider UI and implementing TPM-based credential activation service workflows',
@@ -38,6 +51,7 @@ const experience = [
     date: 'May 2026 – Aug 2026',
     place: 'Pittsburgh, PA',
     tech: ['JavaScript', 'Node.js', 'ServiceNow API'],
+    tags: ['AI / ML', 'Backend & Systems'],
     bullets: [
       'Developed a JavaScript-based AI agent to generate ServiceNow change plans from historical RFCs',
       'Automated ServiceNow change request creation via ServiceNow APIs, reducing manual effort by **30–50%**',
@@ -50,6 +64,7 @@ const experience = [
     date: 'May 2025 – Aug 2025',
     place: 'Houston, TX',
     tech: ['Python', 'SQL', 'FastAPI', 'Docker', 'LangChain'],
+    tags: ['AI / ML', 'Backend & Systems'],
     bullets: [
       'Built an Agentic AI Chatbot to query Halliburton’s DSIS database, reducing average query latency by **40%**',
       'Implemented agentic workflows for tracing and debugging; added chatbot memory enabling context-aware responses',
@@ -63,6 +78,7 @@ const experience = [
     date: 'Jul 2025 – Sep 2025',
     place: 'Remote',
     tech: ['Python', 'Scrapy', 'Selenium', 'Amazon API', 'Pandas'],
+    tags: ['Data'],
     bullets: [
       'Scraped **5k+ baby product listings** (e.g., strollers) from e-commerce platforms, expanding the database by **30%**',
       'Cleaned and standardized **10k+ records** across multiple data sources using Pandas, ensuring uniform formats',
@@ -75,6 +91,7 @@ const experience = [
     date: 'Aug 2024 – May 2025',
     place: 'West Lafayette, IN',
     tech: ['Python', 'YOLOv8'],
+    tags: ['AI / ML', 'Data'],
     bullets: [
       'Developed weed-detection models for AgRPA using Python and YOLOv8, improving herbicide-application precision',
       'Built semantic-segmentation/localization pipelines for multi-spectral drone imagery, boosting detection efficiency by **50%**',
@@ -87,6 +104,7 @@ const experience = [
     date: 'Jun 2023 – Jul 2023',
     place: 'Klein, TX',
     tech: ['Python', 'CMU CS Academy'],
+    tags: ['Teaching'],
     bullets: [
       'Taught **150+ middle schoolers** from 16 schools in a free Python summer camp using CMU CS Academy curriculum',
       'Recognized by Klein ISD Newsroom and Superintendent for impactful community engagement and course development',
@@ -207,6 +225,24 @@ function App() {
   const [progress, setProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const glowRef = useRef(null)
+  const [showTop, setShowTop] = useState(false)
+  const [filter, setFilter] = useState('All')
+  const [toast, setToast] = useState('')
+  const toastTimer = useRef(null)
+  const [paletteOpen, setPaletteOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const [cursor, setCursor] = useState(0)
+  const inputRef = useRef(null)
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.userAgent)
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('theme')
+      if (saved === 'light' || saved === 'dark') return saved
+    } catch {
+      /* storage unavailable */
+    }
+    return 'dark'
+  })
 
   // Scroll progress + active nav link
   useEffect(() => {
@@ -214,6 +250,7 @@ function App() {
       const h = document.documentElement
       const max = h.scrollHeight - h.clientHeight
       setProgress(max > 0 ? (h.scrollTop / max) * 100 : 0)
+      setShowTop(h.scrollTop > 600)
 
       let current = 'home'
       sections.forEach(({ id }) => {
@@ -253,6 +290,113 @@ function App() {
     window.addEventListener('pointermove', move)
     return () => window.removeEventListener('pointermove', move)
   }, [])
+
+  // Apply + persist theme
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    try {
+      localStorage.setItem('theme', theme)
+    } catch {
+      /* storage unavailable */
+    }
+  }, [theme])
+
+  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
+
+  const showToast = msg => {
+    setToast(msg)
+    clearTimeout(toastTimer.current)
+    toastTimer.current = setTimeout(() => setToast(''), 2200)
+  }
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      showToast('Email copied to clipboard')
+    } catch {
+      showToast(`Copy failed. My email is ${EMAIL}`)
+    }
+  }
+
+  const goTo = id => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const openLink = url => window.open(url, '_blank', 'noopener,noreferrer')
+
+  // Command palette
+  const commands = [
+    ...sections.map(s => ({ id: `go-${s.id}`, label: `Go to ${s.label}`, hint: 'Section', run: () => goTo(s.id) })),
+    { id: 'theme', label: theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme', hint: 'Theme', run: toggleTheme },
+    { id: 'email', label: 'Copy email address', hint: 'Contact', run: copyEmail },
+    { id: 'resume', label: 'Open resume (PDF)', hint: 'Link', run: () => openLink(RESUME) },
+    { id: 'github', label: 'Open GitHub', hint: 'Link', run: () => openLink('https://github.com/nehap557') },
+    { id: 'linkedin', label: 'Open LinkedIn', hint: 'Link', run: () => openLink('https://www.linkedin.com/in/neha-pudota/') },
+  ]
+  const q = query.trim().toLowerCase()
+  const filteredCommands = commands.filter(c => c.label.toLowerCase().includes(q))
+
+  const openPalette = () => {
+    setQuery('')
+    setCursor(0)
+    setPaletteOpen(true)
+  }
+  const closePalette = () => setPaletteOpen(false)
+
+  const runCommand = cmd => {
+    closePalette()
+    if (cmd) cmd.run()
+  }
+
+  const onPaletteKey = e => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setCursor(c => Math.min(c + 1, Math.max(filteredCommands.length - 1, 0)))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setCursor(c => Math.max(c - 1, 0))
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      runCommand(filteredCommands[cursor])
+    } else if (e.key === 'Escape') {
+      e.preventDefault()
+      closePalette()
+    }
+  }
+
+  // Ctrl/Cmd + K toggles the palette
+  useEffect(() => {
+    const onKey = e => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setQuery('')
+        setCursor(0)
+        setPaletteOpen(o => !o)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  useEffect(() => {
+    if (paletteOpen && inputRef.current) inputRef.current.focus()
+  }, [paletteOpen])
+
+  // 3D tilt for project cards (mouse devices only)
+  const tiltMove = e => {
+    if (!window.matchMedia('(pointer: fine)').matches) return
+    const el = e.currentTarget
+    const r = el.getBoundingClientRect()
+    const x = (e.clientX - r.left) / r.width - 0.5
+    const y = (e.clientY - r.top) / r.height - 0.5
+    el.style.setProperty('--rx', `${(-y * 7).toFixed(2)}deg`)
+    el.style.setProperty('--ry', `${(x * 9).toFixed(2)}deg`)
+  }
+  const tiltLeave = e => {
+    e.currentTarget.style.setProperty('--rx', '0deg')
+    e.currentTarget.style.setProperty('--ry', '0deg')
+  }
 
   return (
     <div className="app">
@@ -300,6 +444,19 @@ function App() {
               Resume
             </a>
           </li>
+          <li className="nav-tools">
+            <button className="nav-btn nav-search" onClick={openPalette} aria-label="Open command palette">
+              Search <kbd>{isMac ? '⌘' : 'Ctrl'} K</kbd>
+            </button>
+            <button
+              className="nav-btn icon-btn"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={theme === 'dark' ? 'Light theme' : 'Dark theme'}
+            >
+              {theme === 'dark' ? '☀' : '☾'}
+            </button>
+          </li>
         </ul>
       </nav>
 
@@ -333,6 +490,9 @@ function App() {
                   Resume ↗
                 </a>
               </div>
+              <p className="kbd-hint">
+                Tip: press <kbd>{isMac ? '⌘' : 'Ctrl'}</kbd> <kbd>K</kbd> to jump anywhere
+              </p>
             </div>
             <div className="hero-image-container">
               <div className="ring ring-1" />
@@ -373,14 +533,38 @@ function App() {
               <Chips items={courses} />
             </div>
           </div>
+          <div className="now-grid">
+            {nowItems.map(n => (
+              <div className="glass now-card" key={n.label}>
+                <span className="now-icon" aria-hidden="true">{n.icon}</span>
+                <span className="card-label">{n.label}</span>
+                <p>{n.text}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Experience */}
         <section id="experience" className="section">
           <h2 className="section-title reveal"><span>02</span> Experience</h2>
+          <div className="filter-bar reveal" role="group" aria-label="Filter experience">
+            {['All', ...categories].map(c => (
+              <button
+                key={c}
+                className={`filter-pill ${filter === c ? 'active' : ''}`}
+                aria-pressed={filter === c}
+                onClick={() => setFilter(c)}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
           <div className="timeline">
             {experience.map(job => (
-              <article className="timeline-item reveal" key={job.company + job.date}>
+              <article
+                className={`timeline-item reveal ${filter === 'All' || job.tags.includes(filter) ? '' : 'is-hidden'}`}
+                key={job.company + job.date}
+              >
                 <span className={`timeline-dot ${job.current ? 'current' : ''}`} />
                 <div className="glass timeline-content">
                   <div className="job-head">
@@ -432,7 +616,13 @@ function App() {
                 ? { href: p.href, target: '_blank', rel: 'noopener noreferrer' }
                 : {}
               return (
-                <Wrapper className="glass project-card reveal" key={p.title} {...props}>
+                <div className="reveal project-wrap" key={p.title}>
+                <Wrapper
+                  className="glass project-card"
+                  onMouseMove={tiltMove}
+                  onMouseLeave={tiltLeave}
+                  {...props}
+                >
                   <div className="project-image">
                     <img src={p.img} alt={p.title} />
                     {p.href && <span className="project-arrow">↗</span>}
@@ -446,6 +636,7 @@ function App() {
                     <Chips items={p.tech} />
                   </div>
                 </Wrapper>
+                </div>
               )
             })}
           </div>
@@ -499,6 +690,9 @@ function App() {
                 <span className="contact-value">github.com/nehap557</span>
               </a>
             </div>
+            <button className="btn btn-ghost copy-btn" onClick={copyEmail}>
+              Copy email address
+            </button>
           </div>
         </section>
       </main>
@@ -506,6 +700,63 @@ function App() {
       <footer className="footer">
         <span>© {new Date().getFullYear()} Neha Pudota · Built with React + Vite</span>
       </footer>
+
+      <button
+        className={`to-top ${showTop ? 'show' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
+
+      <div className={`toast ${toast ? 'show' : ''}`} role="status" aria-live="polite">
+        {toast}
+      </div>
+
+      {paletteOpen && (
+        <div className="palette-overlay" onMouseDown={closePalette}>
+          <div
+            className="palette glass"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
+            onMouseDown={e => e.stopPropagation()}
+          >
+            <input
+              ref={inputRef}
+              className="palette-input"
+              placeholder="Type a command or search…"
+              value={query}
+              onChange={e => {
+                setQuery(e.target.value)
+                setCursor(0)
+              }}
+              onKeyDown={onPaletteKey}
+              aria-label="Search commands"
+            />
+            <ul className="palette-list">
+              {filteredCommands.length === 0 && <li className="palette-empty">No matches</li>}
+              {filteredCommands.map((c, i) => (
+                <li key={c.id}>
+                  <button
+                    className={`palette-item ${i === cursor ? 'active' : ''}`}
+                    onMouseEnter={() => setCursor(i)}
+                    onClick={() => runCommand(c)}
+                  >
+                    <span>{c.label}</span>
+                    <span className="palette-hint">{c.hint}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="palette-foot">
+              <span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span>
+              <span><kbd>↵</kbd> select</span>
+              <span><kbd>esc</kbd> close</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
