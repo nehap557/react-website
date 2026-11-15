@@ -17,13 +17,6 @@ const roles = [
   'Puzzle Addict',
 ]
 
-const stats = [
-  { value: '4', label: 'Industry roles' },
-  { value: '2k+', label: 'Concurrent queries supported' },
-  { value: '50%', label: 'Detection efficiency boost' },
-  { value: '5k+', label: 'Listings scraped' },
-]
-
 const experience = [
   {
     company: 'IBM',
@@ -346,14 +339,6 @@ function App() {
               <div className="ring ring-2" />
               <img src="./Neha_Pudota.JPG" alt="Neha Pudota" className="hero-image" />
             </div>
-          </div>
-          <div className="stats-strip">
-            {stats.map(s => (
-              <div className="stat" key={s.label}>
-                <span className="stat-value">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
-              </div>
-            ))}
           </div>
         </section>
 
